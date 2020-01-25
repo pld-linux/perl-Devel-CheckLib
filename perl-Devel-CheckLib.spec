@@ -4,7 +4,6 @@
 #
 %define		pdir	Devel
 %define		pnam	CheckLib
-%include	/usr/lib/rpm/macros.perl
 Summary:	Devel::CheckLib - check that a library is available
 Summary(pl.UTF-8):	Devel::CheckLib - sprawdzanie dostępności biblioteki
 Name:		perl-Devel-CheckLib
