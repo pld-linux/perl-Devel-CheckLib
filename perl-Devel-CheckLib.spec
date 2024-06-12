@@ -1,26 +1,28 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Devel
 %define		pnam	CheckLib
 Summary:	Devel::CheckLib - check that a library is available
 Summary(pl.UTF-8):	Devel::CheckLib - sprawdzanie dostępności biblioteki
 Name:		perl-Devel-CheckLib
-Version:	1.11
+Version:	1.16
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Devel/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c20873798591176283f51af4ad8088cd
-URL:		http://search.cpan.org/dist/Devel-CheckLib/
+Source0:	https://www.cpan.org/modules/by-module/Devel/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	e0d362964e0371b9b0343c140aa40a81
+URL:		https://metacpan.org/dist/Devel-CheckLib
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
-BuildRequires:	perl-IO-CaptureOutput >= 1.0801
+BuildRequires:	perl-Capture-Tiny
+BuildRequires:	perl-File-Temp >= 0.16
 BuildRequires:	perl-Mock-Config >= 0.02
-BuildRequires:	perl-Test-Simple >= 0.62
+BuildRequires:	perl-Test-Simple >= 0.88
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
